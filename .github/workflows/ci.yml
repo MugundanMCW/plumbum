@@ -52,6 +52,14 @@ jobs:
           os: ubuntu-latest
         - python-version: '3.15'
           os: ubuntu-latest
+        - python-version: '3.11'
+          os: windows-11-arm
+        - python-version: '3.12'
+          os: windows-11-arm
+        - python-version: '3.13'
+          os: windows-11-arm
+        - python-version: '3.14'
+          os: windows-11-arm
     runs-on: ${{ matrix.os }}
 
     steps:
