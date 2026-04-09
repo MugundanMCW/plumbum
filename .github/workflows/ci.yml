@@ -91,7 +91,7 @@ jobs:
 
     - name: Install Cryptography on Windows ARM64
       if: matrix.os == 'windows-11-arm'
-      run: pip install cryptography==46.0.3
+      run: uv pip install --reinstall cryptography==46.0.3
 
     - name: Setup SSH tests
       if: runner.os != 'Windows'
@@ -114,7 +114,7 @@ jobs:
         ssh localhost -vvv "echo 'Worked!'"
 
     - name: Test with pytest
-      run: uv run pytest --cov --run-optional-tests=ssh,sudo
+      run: uv run --no-sync pytest --cov --run-optional-tests=ssh,sudo
 
     - name: Upload coverage
       run: uvx coveralls --service=github
