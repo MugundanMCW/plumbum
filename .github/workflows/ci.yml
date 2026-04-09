@@ -89,6 +89,10 @@ jobs:
         uv venv --python ${{ matrix.python-version }}
         uv pip install -e.[test] pytest-github-actions-annotate-failures
 
+    - name: Install Cryptography on Windows ARM64
+      if: matrix.os == 'windows-11-arm'
+      run: pip install cryptography==46.0.3
+
     - name: Setup SSH tests
       if: runner.os != 'Windows'
       run: |
